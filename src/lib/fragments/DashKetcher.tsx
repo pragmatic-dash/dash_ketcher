@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 const structServiceProvider = new StandaloneStructServiceProvider();
 
-const PlotlyDashKetcher = (props) => {
+const DashKetcher = (props) => {
     const { id } = props;
     const [ketcher, setKetcher] = useState(null);
     const [molecule, setMolecule] = useState(props.molecule);
@@ -33,6 +33,13 @@ const PlotlyDashKetcher = (props) => {
         [molecule]
     );
 
+    // set molecule when props.molecule changes
+    useEffect(() => {
+        if (ketcher && props.molecule) {
+            ketcher.setMolecule(props.molecule);
+        }
+    }, [props.molecule]);
+
     const handleClick = () => {
         if(ketcher){
             ketcher.getSmiles().then((smiles) => {
@@ -41,6 +48,7 @@ const PlotlyDashKetcher = (props) => {
         }
     }
 
+    // set props.molecule when ketcher changes so that it can be read by dash
     useEffect(() => {
         props.setProps({ molecule });
     }, [molecule]);
@@ -61,20 +69,15 @@ const PlotlyDashKetcher = (props) => {
     );
 };
 
-PlotlyDashKetcher.defaultProps = {};
-PlotlyDashKetcher.propTypes = {
-    /**
-     * Unique ID to identify this component in Dash callbacks.
-     */
+DashKetcher.defaultProps = {};
+DashKetcher.propTypes = {
     id: PropTypes.string,
 
     molecule: PropTypes.string,
 
     buttonLabel: PropTypes.string,
-    /**
-     * Update props to trigger callbacks.
-     */
+
     setProps: PropTypes.func
 }
 
-export default PlotlyDashKetcher;
+export default React.memo(DashKetcher);

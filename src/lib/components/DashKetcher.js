@@ -21,25 +21,12 @@ const DashKetcher = (props) => {
 DashKetcher.defaultProps = {};
 
 DashKetcher.propTypes = {
-    /**
-     * The ID used to identify this component in Dash callbacks.
-     */
     id: PropTypes.string,
 
-    /**
-     * A label that will be printed when this component is rendered.
-     */
-    label: PropTypes.string.isRequired,
+    molecule: PropTypes.string,
 
-    /**
-     * The value displayed in the input.
-     */
-    value: PropTypes.string,
+    buttonLabel: PropTypes.string,
 
-    /**
-     * Dash-assigned callback that should be called to report property changes
-     * to Dash, to make them available for callbacks.
-     */
     setProps: PropTypes.func
 };
 
