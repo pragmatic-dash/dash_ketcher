@@ -25,7 +25,13 @@ DashKetcher.propTypes = {
 
     molecule: PropTypes.string,
 
+    style: PropTypes.object,
+
     buttonLabel: PropTypes.string,
+
+    button_className: PropTypes.string,
+
+    button_style: PropTypes.object,
 
     setProps: PropTypes.func
 };

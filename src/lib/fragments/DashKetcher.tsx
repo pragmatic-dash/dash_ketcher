@@ -13,6 +13,8 @@ const DashKetcher = (props) => {
     const [ketcher, setKetcher] = useState(null);
     const [molecule, setMolecule] = useState(props.molecule);
     const [buttonLabel] = useState(props.buttonLabel);
+    let button_className = props.button_className;
+    if(!button_className) button_className = "btn btn-primary"
 
     const handleKetcherInit = useCallback(
         (ketcher) => {
@@ -54,7 +56,7 @@ const DashKetcher = (props) => {
     }, [molecule]);
 
     return (
-        <div id={id}>
+        <div id={id} style={props.style}>
             {!ketcher && (<div>Loading ketcher</div>) }
             <KetcherEditor
                 staticResourcesUrl={"/"}
@@ -64,7 +66,7 @@ const DashKetcher = (props) => {
                 structServiceProvider={structServiceProvider}
                 onInit={handleKetcherInit}
             />
-            <button onClick={handleClick} className="btn btn-primary">{ buttonLabel }</button>
+            <button onClick={handleClick} className={button_className} style={props.button_style}>{ buttonLabel }</button>
         </div>
     );
 };
@@ -75,7 +77,13 @@ DashKetcher.propTypes = {
 
     molecule: PropTypes.string,
 
+    style: PropTypes.object,
+
     buttonLabel: PropTypes.string,
+
+    button_className: PropTypes.string,
+
+    button_style: PropTypes.object,
 
     setProps: PropTypes.func
 }
