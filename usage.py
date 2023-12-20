@@ -18,11 +18,11 @@ app.layout = html.Div([
             "display": "inline-block"
         }
     ),
-    dash_ketcher.DashKetcher(id='component', molecule='', buttonLabel='Submit', style={'height': '100px'}, button_style={"marginTop": "10px"}),
+    dash_ketcher.DashKetcher(id='component', input_molecule="", style={'height': '100px'}),
 ])
 
 @callback(
-    Output('component', 'molecule'),
+    Output('component', 'input_molecule'),
     Input('mol-input', 'value'),
 )
 def update_ketcher(value):
@@ -30,6 +30,15 @@ def update_ketcher(value):
         return no_update
     return value
 
+@callback(
+    Output('mol-input', 'value'),
+    Input('component', 'output_molecule'),
+)
+def update_ketcher(value):
+    if value:
+        return value
+    else:
+        return no_update
 
 if __name__ == '__main__':
     app.run_server(debug=True)

@@ -11,7 +11,14 @@
         "required": false,
         "description": ""
       },
-      "molecule": {
+      "input_molecule": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": ""
+      },
+      "output_molecule": {
         "type": {
           "name": "string"
         },
@@ -19,27 +26,6 @@
         "description": ""
       },
       "style": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": ""
-      },
-      "buttonLabel": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": ""
-      },
-      "button_className": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": ""
-      },
-      "button_style": {
         "type": {
           "name": "object"
         },

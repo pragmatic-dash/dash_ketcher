@@ -23,15 +23,11 @@ DashKetcher.defaultProps = {};
 DashKetcher.propTypes = {
     id: PropTypes.string,
 
-    molecule: PropTypes.string,
+    input_molecule: PropTypes.string,
+
+    output_molecule: PropTypes.string,
 
     style: PropTypes.object,
-
-    buttonLabel: PropTypes.string,
-
-    button_className: PropTypes.string,
-
-    button_style: PropTypes.object,
 
     setProps: PropTypes.func
 };

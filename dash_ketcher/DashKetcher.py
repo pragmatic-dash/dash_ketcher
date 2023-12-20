@@ -15,13 +15,9 @@ Keyword arguments:
 
 - id (string; optional)
 
-- buttonLabel (string; optional)
+- input_molecule (string; optional)
 
-- button_className (string; optional)
-
-- button_style (dict; optional)
-
-- molecule (string; optional)
+- output_molecule (string; optional)
 
 - style (dict; optional)"""
     _children_props = []
@@ -29,10 +25,10 @@ Keyword arguments:
     _namespace = 'dash_ketcher'
     _type = 'DashKetcher'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, molecule=Component.UNDEFINED, style=Component.UNDEFINED, buttonLabel=Component.UNDEFINED, button_className=Component.UNDEFINED, button_style=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'buttonLabel', 'button_className', 'button_style', 'molecule', 'style']
+    def __init__(self, id=Component.UNDEFINED, input_molecule=Component.UNDEFINED, output_molecule=Component.UNDEFINED, style=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'input_molecule', 'output_molecule', 'style']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'buttonLabel', 'button_className', 'button_style', 'molecule', 'style']
+        self.available_properties = ['id', 'input_molecule', 'output_molecule', 'style']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
